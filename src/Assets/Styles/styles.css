@@ -1,0 +1,57 @@
+
+:root {
+
+	/* Colors */
+	--background-black-soft: #1D1E22;
+	--black-30: rgba(255,255,255,0.3);
+
+	/* Typography */
+	--open-sans: 'Open Sans', sans-serif;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: 'Open-Sans', sans-serif;
+	scroll-behavior: smooth;
+	transition-duration: 500ms;
+} body {
+	font: var(--open-sans);
+} * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+} a {
+	text-decoration: none;
+	color: unset;
+}
+
+h1 {
+	color: blue;
+}
+
+
+/* Generals */
+
+.container {
+	width: 110rem;
+	margin: auto;
+}
+
+/*  */
+
+.App {
+	background-color: var(--background-black-soft);
+}
+
+
+/* Footer */
+
+
+/* Last Message */
+.app__footer__message {
+	padding: 3rem 0;
+	text-align: center;
+	color: var(--black-30);
+	font-weight: 300;
+	font-size: 1.4rem;
+}
