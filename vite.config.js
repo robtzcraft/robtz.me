@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-
-// relative paths
-import path from 'path';
+import path from 'path';                              // Used for relative paths
 
 // https://vite.dev/config/
 export default defineConfig({

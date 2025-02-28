@@ -1,14 +1,17 @@
+
 .__header {
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   height: 5.6em;
-  padding: 0 1em;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  z-index: 1;
+  border-bottom: 0.5px solid gray;
+  padding: 0 1rem;
 }
+.__header > .__container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .__header__logo {
   display: flex;
   align-items: center;
@@ -19,4 +22,33 @@
 .__display__logo__img {
   width: 35px;
   margin-right: 8px;
+}
+
+.__header__navbar {
+  display: none;
+  color: white;
+  color: white;
+  align-items: center;
+}
+.__header__navbar__button {
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #FFFFFF;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+.__header__navbar__button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (min-width: 800px) {
+  .__header__navbar__large{
+    display: flex;
+  }
+  .__header__navbar__button {
+    display: none;
+  }
 }

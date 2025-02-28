@@ -31,9 +31,9 @@ h1 {
 
 /* Generals */
 
-.container {
-	width: 110rem;
-	margin: auto;
+.__container {
+	width: 80rem;
+	margin: 0 auto;
 }
 
 /*  */
