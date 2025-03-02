@@ -8,7 +8,7 @@ function Button({ href, children, download=false }) {
 	
 	return(
 		<div>
-			<a href={href} download={href_value} className="button">{children}</a>):
+			<a href={href} download={href_value} className="button">{children}</a>
 		</div>
 	)
 }

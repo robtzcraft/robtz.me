@@ -16,8 +16,10 @@
   display: flex;
   align-items: center;
   color: white;
-  font-size: 20px;
   font-weight: 700;
+}
+.__header__logo p {
+  font-size: 26px;
 }
 .__display__logo__img {
   width: 35px;
@@ -25,30 +27,11 @@
 }
 
 .__header__navbar {
-  display: none;
+  display: flex;
   color: white;
-  color: white;
+  font-weight: 500;
   align-items: center;
 }
-.__header__navbar__button {
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #FFFFFF;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-}
-.__header__navbar__button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-@media screen and (min-width: 800px) {
-  .__header__navbar__large{
-    display: flex;
-  }
-  .__header__navbar__button {
-    display: none;
-  }
+.__header__navbar a {
+  margin-left: 13px;
 }
