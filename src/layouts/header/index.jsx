@@ -5,7 +5,7 @@ import GithubIcon from '@assets/images/brand-github.svg';
 import LinkedInIcon from '@assets/images/brand-linkedin.svg';
 import MailIcon from '@assets/images/mail.svg';
 
-function Header() {
+function Header({ toggleEmailPopup }) {
   return (
     <div className='__header'>
       <div className='__container'>
@@ -22,7 +22,7 @@ function Header() {
           <a href='https://www.linkedin.com/in/jorge-luis-azuara-251427239/' target='_blank'>
             <img src={LinkedInIcon} alt="linkedin" />
           </a>
-          <a href='#' target='_blank'>
+          <a href="#" onClick={toggleEmailPopup}>
             <img src={MailIcon} alt="mail" />
           </a>
           <Button 

@@ -1,12 +1,24 @@
+import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import "@assets/styles/styles.css";
 import Header from './layouts/header';
 import Footer from './layouts/footer';
+import EmailPopUp from './components/EmailPopUp';
 
 function App() {
+
+  // State for email popUp
+  const [isEmailPopupOpen, setIsEmailPopupOpen] = useState('none');
+
+  const toggleEmailPopup = () => {
+    setIsEmailPopupOpen(isEmailPopupOpen === 'none'?'flex':'none');
+    console.log(isEmailPopupOpen)
+  }
+
 	return (
     <div className='App'>
-      <Header />
+      <EmailPopUp isEmailPopupOpen={isEmailPopupOpen} toggleEmailPopup={toggleEmailPopup}/>
+      <Header toggleEmailPopup={toggleEmailPopup}/>
      
       <section className='__container__body app__body'>
         <div className='app__body--prebody'>
