@@ -5,7 +5,17 @@
   --white: rgba(255, 255, 255, 0.89);
 	--black-30: rgba(255,255,255,0.3);
   --black-45: rgba(45, 45, 45, 1);
+  --gray-soft: #525252;
   --black-soft: #A0AEC0;
+  --orange: #FF8F06;
+
+  /* Dark scheme */
+  --robtz__black: #1D1E22;
+  --robtz__orange: #FF8F06;
+  --robtz__blackSoft: rgb(45,45,45);
+  --robtz__orangeSoft: #FFC380;
+  --robtz__brown: #805432;
+  --robtz__white: #E5E5E5;
 
 	/* Typography */
 	--open-sans: 'Open Sans', sans-serif;
@@ -15,13 +25,13 @@
   --font-1: 1rem;
 }
 
+
+/* Inmutables */
 html {
 	font-size: 62.5%;
 	font-family: var(--inter-font);
 	scroll-behavior: smooth;
 	transition-duration: 500ms;
-} body {
-  color: var(--white);
 } * {
 	box-sizing: border-box;
 	margin: 0;
@@ -31,8 +41,24 @@ html {
 	color: unset;
 }
 
-h1 {
-	color: blue;
+
+/* Generals */
+
+h2 { 
+  margin: 4rem 0 1rem 1rem; 
+  color: var(--orange); 
+  font-size: 1.8rem;
+  display: inline-block;
+} 
+h2:after {
+  content: ' ';
+  position: relative;
+  top: 0.24rem;
+  display: flex;
+  height: 0.32rem;
+  border-radius: 0.16rem;
+  background-color: var(--gray-soft);
+  color: white;
 }
 p { 
   font-size: 1.6rem;
@@ -41,6 +67,14 @@ p {
 
 
 /* Generals */
+
+body {
+  color: var(--robtz__white);
+}
+
+
+
+
 
 .__container {
 	width: 76rem;
@@ -51,57 +85,27 @@ p {
   margin: 0 auto;
 }
 
-/*  */
 
-.gg-sun {
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  transform: scale(var(--ggs, 1));
-  width: 24px;
-  height: 24px;
-  background:
-    linear-gradient(to bottom, currentColor 4px, transparent 0) no-repeat 5px -6px/2px
-      6px,
-    linear-gradient(to bottom, currentColor 4px, transparent 0) no-repeat 5px
-      14px/2px 6px,
-    linear-gradient(to bottom, currentColor 4px, transparent 0) no-repeat -8px 5px/6px
-      2px,
-    linear-gradient(to bottom, currentColor 4px, transparent 0) no-repeat 14px
-      5px/6px 2px;
-  border-radius: 100px;
-  box-shadow: inset 0 0 0 2px;
-  border: 6px solid transparent;
+
+.app__profilePhoto {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
 }
-.gg-sun::after,
-.gg-sun::before {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  border-right: 4px solid;
-  border-left: 4px solid;
-  left: -6px;
-  top: 5px;
+.app__profilePhoto img {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 4rem;
 }
-.gg-sun::before {
-  transform: rotate(-45deg);
-}
-.gg-sun::after {
-  transform: rotate(45deg);
-}
+
+
 
 
 
 .App {
   min-height: 100vh;
-	background-color: var(--background-black-soft);
+	background-color: var(--robtz__black);
 }
-
-
-/* Footer */
 
 
 /* Last Message */

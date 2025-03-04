@@ -1,0 +1,25 @@
+
+.app__body--experienceItem {
+  margin: 1.6rem 0;
+}
+
+.app__body--experienceItemTitle {
+  font-weight: 700;
+}
+.app__body--experienceItemTitle::before {
+  content: ' ';
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  display: inline-block;
+  background-color: white;
+  margin-right: 10px;
+  position: relative;
+  top: -1.5px;
+}
+
+.app__body--experienceItemCompany, .app__body--experienceItemDate {
+  margin-left: 2rem;
+  margin-top: 0.2rem;
+}
+
