@@ -1,5 +1,3 @@
-import Button from "./Button"
-import ButtonOnClick from "./ButtonOnClick";
 
 function EmailPopUp({ isEmailPopupOpen, toggleEmailPopup }) {
   return(

@@ -14,8 +14,8 @@
   display: inline-block;
   background-color: white;
   margin-right: 10px;
-  position: relative;
   top: -1.5px;
+  z-index: 1;
 }
 
 .app__body--experienceItemCompany, .app__body--experienceItemDate {

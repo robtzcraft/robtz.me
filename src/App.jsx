@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import "@assets/styles/styles.css";
 import Header from './layouts/header';
@@ -6,6 +6,9 @@ import Footer from './layouts/footer';
 import EmailPopUp from './components/EmailPopUp';
 import Experience from './layouts/experience';
 import ProfilePhoto from '@public/profile.jpg';
+import Skills from './layouts/skills';
+import Portfolio from './layouts/portfolio';
+import Button from './components/Button';
 
 function App() {
 
@@ -13,13 +16,6 @@ function App() {
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState('none');
   const toggleEmailPopup = () => {
     setIsEmailPopupOpen(isEmailPopupOpen === 'none'?'flex':'none');
-    console.log(isEmailPopupOpen)
-  }
-
-  // State for colorScheme
-  const [colorScheme, setColorScheme] = useState('');
-  const toggleColorScheme = () => {
-    setColorScheme(colorScheme === ''?'dark':'')
   }
 
 	return (
@@ -30,7 +26,7 @@ function App() {
       <div className='app__profilePhoto'>
         <img src={ProfilePhoto} alt='ProfilePhoto'/>
       </div>
-      <section className='__container__body app__body'>
+      <main className='__container__body app__body'>
         <div className='app__body--prebody'>
           ✋  Hi!, I'm 'robtz' a junior software developer <br /> based in México!
         </div>
@@ -44,8 +40,13 @@ function App() {
           has more than 100l subscribers.
         </p>
         <Experience />
-    
-        <h2>Wanna see can I do?</h2>
+        <Skills /> 
+      </main>
+
+      <Portfolio />
+
+      <section>
+        <Button href={'#'} children={'See my Blog'}download={false} />
       </section>
 
       <Footer />

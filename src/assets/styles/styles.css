@@ -20,6 +20,7 @@
 	/* Typography */
 	--open-sans: 'Open Sans', sans-serif;
   --inter-font: 'Inter', sans-serif;
+  --jetbrainsmono-font: 'JetBrains Mono', monospace;
 
   /* Font-sizing */
   --font-1: 1rem;
@@ -32,6 +33,7 @@ html {
 	font-family: var(--inter-font);
 	scroll-behavior: smooth;
 	transition-duration: 500ms;
+  background-color: var(--robtz__black);
 } * {
 	box-sizing: border-box;
 	margin: 0;
@@ -52,7 +54,6 @@ h2 {
 } 
 h2:after {
   content: ' ';
-  position: relative;
   top: 0.24rem;
   display: flex;
   height: 0.32rem;
@@ -71,11 +72,6 @@ p {
 body {
   color: var(--robtz__white);
 }
-
-
-
-
-
 .__container {
 	width: 76rem;
 	margin: 0 auto;
@@ -90,7 +86,8 @@ body {
 .app__profilePhoto {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 0;
+  padding: 8rem 0 0 0;
 }
 .app__profilePhoto img {
   width: 22rem;
