@@ -4,13 +4,13 @@ function EmailPopUp({ isEmailPopupOpen, toggleEmailPopup }) {
     <div className="__emailPopup" style={{display: isEmailPopupOpen}}>
       <div className="__emailPopup__body">
         <form>
-          <label for="name">Name: </label>
+          <label htmlFor="name">Name: </label>
           <input type="text" name="name" />
-          <label for="email">Email: </label>
+          <label htmlFor="email">Email: </label>
           <input type="email" name="email" />
-          <label for="subject">Subject: </label>
+          <label htmlFor="subject">Subject: </label>
           <input type="text" name="subjet" />
-          <label for="message">Message: </label>
+          <label htmlFor="message">Message: </label>
           <input type="text" name="message" />
         </form>
         <button onClick={toggleEmailPopup}>test</button>  

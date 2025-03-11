@@ -5,10 +5,65 @@ import Header from './layouts/header';
 import Footer from './layouts/footer';
 import EmailPopUp from './components/EmailPopUp';
 import Experience from './layouts/experience';
-import ProfilePhoto from '@public/profile.jpg';
+import ProfilePhoto from '/profile.jpg';
 import Skills from './layouts/skills';
 import Portfolio from './layouts/portfolio';
 import Button from './components/Button';
+
+import { createClient } from '@supabase/supabase-js';
+const supabaseUrl = 'https://mrzhlbvbuwadffyfzosj.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yemhsYnZidXdhZGZmeWZ6b3NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE2NzgxNDYsImV4cCI6MjA1NzI1NDE0Nn0._qguxIBiJmVBiQZKSXp_AUX2upapS5fcrMUJ_s-NSDw';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+function SupabaseDataList(){
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect( () => {
+    async function fetchData() {
+      setError(null);
+      try {
+        const { data, error } = await supabase.from('contactmessages').select('*');
+        if(error) {
+          setError(error);
+        } else {
+          setData(data);
+        }
+      } catch (err) {
+        setError(err);
+      } finally {
+        console.log('finally');
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  if (error) {
+    return <p>Error: {error.message}</p>
+  }
+
+  return(
+    <div>
+      <h2>Supabase Data</h2>
+      {data.length > 0 ? (
+        <ul>
+          {data.map((item) => (
+            <li key={item.id}>
+              {/* Replace with your data fields */}
+              {item.fullname && <p>Name: {item.fullname}</p>}
+              {item.emaildirection && <p>Email: {item.emaildirection}</p>}
+              {item.emailmessage && <p>Description: {item.emailmessage}</p>}
+              {/* Add more fields as needed */}
+            </li>
+          ))}
+        </ul>
+      ):(
+        <p>No data found.</p>
+      )}
+    </div>
+  );
+}
 
 function App() {
 
@@ -50,6 +105,9 @@ function App() {
       </section>
 
       <Footer />
+
+      <SupabaseDataList />
+
 	  </div>
 	)
 }
