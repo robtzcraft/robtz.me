@@ -69,7 +69,8 @@ function App() {
 
   // State for email popUp
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState('none');
-  const toggleEmailPopup = () => {
+  const toggleEmailPopup = (e) => {
+    e.preventDefault();
     setIsEmailPopupOpen(isEmailPopupOpen === 'none'?'flex':'none');
   }
 
