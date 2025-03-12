@@ -2,8 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { useRef } from 'react';
 
 import { createClient } from '@supabase/supabase-js';
-const supabaseUrl = 'https://mrzhlbvbuwadffyfzosj.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yemhsYnZidXdhZGZmeWZ6b3NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE2NzgxNDYsImV4cCI6MjA1NzI1NDE0Nn0._qguxIBiJmVBiQZKSXp_AUX2upapS5fcrMUJ_s-NSDw';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 function EmailPopUp({ isEmailPopupOpen, toggleEmailPopup }) {
