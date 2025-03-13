@@ -17,14 +17,25 @@ function EmailPopUp({ isEmailPopupOpen, toggleEmailPopup }) {
   // Create New Email Entry
   const createEmail = async(e) => {
     e.preventDefault();
+
+    const dateNow = new Date();
+
+    const optionsDate = {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    };
+
+    const dateFormat = dateNow.toLocaleDateString('en-US', optionsDate);
+
     try {
       const { data, error } = await supabase
         .from('contactmessages')
         .insert([{
           id: uuidv4(),
-          dateconnection: '12-12-2024',
+          dateconnection: dateFormat,
           ipdirection: '123123123',
-          devicetype: 'Android',
+          devicetype: navigator.oscpu,
           fullname: nameRef.current.value,
           emaildirection: emailRef.current.value,
           emailsubject: subjectRef.current.value,

@@ -1,6 +1,6 @@
 import './header.css';
 import Button from '../../components/Button';
-import CurriculumnVitae from '@public/downloads/CurriculumVitae_AzuaraJorge.pdf';
+import CurriculumVitae from '../../documents/CurriculumVitae_AzuaraJorge.pdf';
 import GithubIcon from '@assets/images/brand-github.svg';
 import LinkedInIcon from '@assets/images/brand-linkedin.svg';
 import MailIcon from '@assets/images/mail.svg';
@@ -14,7 +14,6 @@ function Header({ toggleEmailPopup }) {
           <img className='__display__logo__img' src='robtzcraft.svg' alt='logo' />
           <p>robtz</p> 
         </a>
-        
         <nav className='__header__navbar'>
           <a href='https://github.com/robtzcraft' target='_blank'>
             <img src={GithubIcon} alt='github'/>
@@ -26,7 +25,7 @@ function Header({ toggleEmailPopup }) {
             <img src={MailIcon} alt="mail" />
           </a>
           <Button 
-            href={CurriculumnVitae}
+            href={CurriculumVitae}
             children={'Download CV'}
             download={true}
           />
