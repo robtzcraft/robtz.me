@@ -21,7 +21,7 @@ function Header() {
   const emailRef = useRef();
   const subjectRef = useRef();
   const messageRef = useRef();
-  const myForm = document.querySelector('#form');
+  const myForm = document.querySelector("#form");
 
   const openDialog = (e) => {
     e.preventDefault();
