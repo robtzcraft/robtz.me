@@ -20,7 +20,9 @@ function App() {
         </div>
         <h2>About</h2>
         <p>
-          Something!... I'm working on it...
+          Hi!... I'm Jorge (robtz) a passionate software developer with over <span>+2 years</span> developing tools to automate
+          tasks in different areas and process improvement. Experienced in working with different teams in different 
+          areas such as <span>IT Support and IoT teams</span>, and sometimes working with robotics and electronics tools.
         </p>
         <Experience />
         <Skills /> 

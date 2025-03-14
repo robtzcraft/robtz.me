@@ -85,6 +85,7 @@ function Header() {
       console.error(`Error: ${error}`);
       alert(`Something went wrong!. Please check your internet connection and retry.
         ${error}`);
+      setSubmitContent('Retry');
     }
   };
 
