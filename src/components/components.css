@@ -4,8 +4,9 @@
 	padding: 10px 20px;
 	border: white solid 2px;
 	border-radius: 3rem;
-	color: white;
+	color: var(--white);
 	transition: 200ms;
+  background-color: transparent;
 }
 
 .button:hover {

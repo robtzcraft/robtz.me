@@ -4,6 +4,7 @@ import CurriculumVitae from '../../documents/CurriculumVitae_AzuaraJorge.pdf';
 import GithubIcon from '@assets/images/brand-github.svg';
 import LinkedInIcon from '@assets/images/brand-linkedin.svg';
 import MailIcon from '@assets/images/mail.svg';
+import '../../components/components.css'
 import { createClient } from '@supabase/supabase-js';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -12,7 +13,7 @@ const supabaseKEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 const supabase = createClient(supabaseURL, supabaseKEY);
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function Header() {
 
@@ -22,6 +23,16 @@ function Header() {
   const subjectRef = useRef();
   const messageRef = useRef();
   const formRef = useRef();
+  const submitRef = useRef();
+
+  const [submitContent, setSubmitContent] = useState('Submit');
+  const toggleSubmitContent = () => {
+    if(submitContent == 'Submit') {
+      setSubmitContent('Sending...');
+    } else {
+      setSubmitContent('Submit');
+    }
+  }
 
   const openDialog = (e) => {
     e.preventDefault();
@@ -48,6 +59,7 @@ function Header() {
   }
   const sendData = async( e ) => {
     try {
+      toggleSubmitContent();
       const { error } = await supabase
         .from('contactmessages')
         .insert([{
@@ -68,6 +80,7 @@ function Header() {
         formRef.current.reset();
       }
       alert('I\'ve received your data, I\'ll contact you later!');
+      setSubmitContent('Submit');
     } catch( error ) {
       console.error(`Error: ${error}`);
       alert(`Something went wrong!. Please check your internet connection and retry.
@@ -128,27 +141,16 @@ function Header() {
           <dialog ref={dialogRef} className='dialogPopUp'>
             <div className='dialogPopUp__header'>
               <p>Let's talk!</p>
-              <p>Test for text</p>
+              <p>Contact me by filling out this form or emiling me at <span>jorgeluisah47@gmail.com</span></p>
             </div>
             <div className='dialogPopup__form' id='dialogPopup__form'>
               <form ref={formRef} onSubmit={closeDialog}>
-                <div className='formElement'>
-                  <input type="text" name="userName" ref={nameRef} placeholder='Enter your name' required/>
-                </div>
-                <div className='formElement'>
-                  <input type="email" name='userEmail' ref={emailRef} placeholder='Enter your email' required/>
-                </div>
-                <div className='formElement'>
-                  <input type="text" name='userSubject' ref={subjectRef} placeholder='Email Subject' required/>
-                </div>
-                <div className='formElement'>
-                  <textarea name="userMessage" ref={messageRef} placeholder='Type your message here!' required></textarea>
-                </div>
-                <button type='submit'>Submit</button>
+                <input type="text" ref={nameRef} placeholder='Enter your name' maxLength={40} required/>      
+                <input type="email" ref={emailRef} placeholder='Enter your email' maxLength={255} required/>
+                <input type="text" ref={subjectRef} placeholder='Email Subject' maxLength={255} required/>
+                <textarea name='userMessage' ref={messageRef} placeholder='Type your message here!' maxLength={1000} required></textarea>
+                <button className='button' ref={submitRef} type='submit'>{submitContent}</button>
               </form>
-            </div>
-            <div>
-              <p>Contact me by filling out this form or emailing me at <span>jorgeluisah47@gmail.com</span></p>
             </div>
           </dialog>
 
