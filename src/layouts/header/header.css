@@ -40,3 +40,55 @@
 .__header__navbar a {
   margin-left: 13px;
 }
+
+.dialogPopUp{
+  position: fixed;
+  margin: auto;
+  padding: 1rem;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  background-color: var(--robtz__blackSoft);
+  border: 0px;
+  overflow-y: auto;
+  z-index: 1000;
+  color: white;
+  width: 40rem;
+  border-radius: 1rem;
+}
+.dialogPopUp::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body:has(dialog[open]){
+  overflow: hidden;
+}
+.dialogPopUp__header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.6rem;
+}
+.dialogPopUp__header p:first-child{
+  font-size: 2rem;
+}
+
+.dialogPopup__form form div{
+  display: flex;
+  justify-content: center;
+}
+.formElement {
+  margin-bottom: 1.2rem;
+}
+.formElement input, textarea {
+  height: 3.4rem;
+  border-radius: 1rem;
+  width: calc(90%);
+  padding: 0 1.2rem;
+  border: 0px;
+}
+textarea[name="userMessage"] {
+  height: 10rem;
+  vertical-align: top;
+  padding: 0.5rem 1.2rem;
+  resize: none;
+  font-family: var(--open-sans);
+  font-size: 1.35rem;
+}

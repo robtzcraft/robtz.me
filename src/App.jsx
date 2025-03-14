@@ -1,27 +1,16 @@
-import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import "@assets/styles/styles.css";
 import Header from './layouts/header';
 import Footer from './layouts/footer';
-import EmailPopUp from './components/EmailPopUp';
 import Experience from './layouts/experience';
 import ProfilePhoto from '/profile.jpg';
 import Skills from './layouts/skills';
 import Portfolio from './layouts/portfolio';
 
 function App() {
-
-  // State for email popUp
-  const [isEmailPopupOpen, setIsEmailPopupOpen] = useState('none');
-  const toggleEmailPopup = (e) => {
-    e.preventDefault();
-    setIsEmailPopupOpen(isEmailPopupOpen === 'none'?'flex':'none');
-  }
-
 	return (
     <div className='App'>
-      <EmailPopUp isEmailPopupOpen={isEmailPopupOpen} toggleEmailPopup={toggleEmailPopup}/>
-      <Header toggleEmailPopup={toggleEmailPopup}/>
+      <Header />
       <div className='app__profilePhoto'>
         <img src={ProfilePhoto} alt='ProfilePhoto'/>
       </div>
