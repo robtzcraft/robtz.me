@@ -21,7 +21,7 @@ function Header() {
   const emailRef = useRef();
   const subjectRef = useRef();
   const messageRef = useRef();
-  const myForm = document.querySelector("#form");
+  const formRef = useRef();
 
   const openDialog = (e) => {
     e.preventDefault();
@@ -39,16 +39,16 @@ function Header() {
   }
   const dateFormat = dateNow.toLocaleDateString('en-US', optionsDate)
 
-  const closeDialog = async (e) => {
+  const closeDialog = async ( e ) => {
     e.preventDefault();
     await sendData();
     if(dialogRef.current) {
       dialogRef.current.close();
     }
   }
-  const sendData = async(e) => {
+  const sendData = async( e ) => {
     try {
-      const {data, error} = await supabase
+      const { error } = await supabase
         .from('contactmessages')
         .insert([{
           id: uuidv4(),
@@ -64,7 +64,9 @@ function Header() {
       if( error ) {
         throw new Error(`Error: ${error.message}`);
       }
-      myForm.reset();
+      if(formRef){
+        formRef.current.reset();
+      }
       alert('I\'ve received your data, I\'ll contact you later!');
     } catch( error ) {
       console.error(`Error: ${error}`);
@@ -129,7 +131,7 @@ function Header() {
               <p>Test for text</p>
             </div>
             <div className='dialogPopup__form' id='dialogPopup__form'>
-              <form id='form' onSubmit={closeDialog}>
+              <form ref={formRef} onSubmit={closeDialog}>
                 <div className='formElement'>
                   <input type="text" name="userName" ref={nameRef} placeholder='Enter your name' required/>
                 </div>
