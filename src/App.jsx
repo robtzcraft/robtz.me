@@ -6,9 +6,11 @@ import Experience from './layouts/experience';
 import ProfilePhoto from '/profile.jpg';
 import Skills from './layouts/skills';
 import Portfolio from './layouts/portfolio';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Dash from '../dash/dash';
 
-function App() {
-	return (
+function Home(){
+  return(
     <div className='App'>
       <Header />
       <div className='app__profilePhoto'>
@@ -29,9 +31,25 @@ function App() {
       </main>
       <Portfolio />
       <Footer />
-	  </div>
-	)
+      <Routes>
+        <Route path="/dash" element={<Dash />} />
+      </Routes>
+    </div> 
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/dash" element={<Dash />} />
+    </Routes>
+  )
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render( <App /> )
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+)
