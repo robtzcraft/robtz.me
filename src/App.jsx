@@ -1,3 +1,11 @@
+/*
+  Loaded pages for routing:
+    _home
+    _dashLogIn
+    _dash
+    _error404
+*/
+
 import ReactDOM from 'react-dom/client';
 import "@assets/styles/styles.css";
 import Header from './layouts/header';
@@ -6,8 +14,12 @@ import Experience from './layouts/experience';
 import ProfilePhoto from '/profile.jpg';
 import Skills from './layouts/skills';
 import Portfolio from './layouts/portfolio';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DashLogin from '../apps/dash/DashLogin';
+import Dash from '../apps/dash/Dash';
+import Error404 from './layouts/error/Error404';
 
-function App() {
+function Home() {
 	return (
     <div className='App'>
       <Header />
@@ -33,5 +45,20 @@ function App() {
 	)
 }
 
+function App(){
+  return(
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/authentication" element={<DashLogin />} />
+      <Route path="/dash" element={<Dash />} />
+      <Route path='*' element={<Error404 />} />
+    </Routes>
+  )
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render( <App /> )
+root.render( 
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+)

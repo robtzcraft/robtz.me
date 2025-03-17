@@ -70,7 +70,8 @@ function Header() {
           fullname: nameRef.current.value,
           emaildirection: emailRef.current.value,
           emailsubject: subjectRef.current.value,
-          emailmessage: messageRef.current.value
+          emailmessage: messageRef.current.value,
+          visibility: true
         }]);
         // .select();
       if( error ) {

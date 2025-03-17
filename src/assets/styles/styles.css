@@ -130,3 +130,35 @@ body {
   font-size: 1.4rem;
   line-height: 1.6;
 }
+
+
+
+.errorPage {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+.errorPage__card {
+  background-color: #1D1E22;
+  padding: 4rem;
+  border-radius: 2rem;
+  border: 1px solid #A0AEC0;
+}
+.errorPage__cardTitle {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+.errorPage__cardBody {
+  margin-bottom: 1rem;
+}
+.errorPage__button {
+  margin-top: 2rem;
+  width: 100%;
+  border: 2px solid white;
+  color: white;
+  border-radius: 1rem;
+  background-color: #FF8F06;
+  height: 5rem;
+  cursor: pointer;
+}

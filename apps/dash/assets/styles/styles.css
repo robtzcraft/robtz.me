@@ -1,0 +1,19 @@
+
+:root{
+    --grey-400: #2C2C2C;
+}
+
+body {
+    background-color: var(--grey-400);
+}
+
+h2 {
+    color: blue;
+}
+
+.dash__data {
+  padding: 2rem 0;
+}
+.dash__data--item {
+  display: flex;
+}
