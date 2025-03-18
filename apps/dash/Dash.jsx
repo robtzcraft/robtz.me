@@ -3,38 +3,48 @@ import Sidebar from './layouts/Sidebar';
 import PasswordManager from './layouts/PasswordManager';
 import { supabase } from '../../src/App';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+import robtzcraft from '@public/robtzcraft.svg'
 
 function Dash() {
+    // Navigate object
     const navigate = useNavigate();
-
+    // UserData
+    const [sessionData, setSessionData] = useState(null);
+    /* 
+        Authentication of user:
+        If session is saved on browser then pass to app
+        If not then return to /authentication page
+    */
     useEffect(() => {
         const checkSession = async () => {
             const { data } = await supabase.auth.getSession();
-            if (!data?.session) { // Verifica si data y session existen y si session es null o undefined
+            setSessionData(data.session.user.email)
+            if (!data) {
                 navigate('/authentication');
             }
         };
-
         checkSession();
-
-        // Configura un listener para los cambios de sesión de Supabase.
+        // Listener to verify session changes
         const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
             if (!session) {
                 navigate('/authentication');
             }
         });
-
-        // Limpia el listener cuando el componente se desmonta.
         return () => subscription.unsubscribe();
-
-    }, [navigate]); // Agrega navigate como dependencia.
-
+    }, [navigate]);
+    // console.log(sessionData)
     return (
         <div className='dash'>
-            {console.log('Renderizando')}
             <Sidebar />
             <div className='dash__content'>
+                <div className='dash__content--header'>
+                    <button className='dash__content--headerButton'>
+                        <img src={robtzcraft} alt="image" />
+                        <p>{sessionData}</p>
+                    </button>
+                </div>
                 <PasswordManager />
             </div>
         </div>

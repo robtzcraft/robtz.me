@@ -5,22 +5,21 @@ import { supabase } from "../../../src/App";
 function PasswordManager(){
 
     const inputSearch = useRef()
-    const [searchTerm, setSearchTerm] = useState('')
 
-    const [messages, setMessages] = useState([]); // Crea un estado para almacenar los mensajes
+    const [passwords, setPasswords] = useState([]); // Crea un estado para almacenar los mensajes
 
     const fetchData = useCallback(async () => {
         try {
             const searchValue = inputSearch.current ? inputSearch.current.value : "";
             const { data, error } = await supabase
-                .from('contactmessages')
+                .from('passwordmanager')
                 .select('')
-                .eq('visibility', true)
-                .like('emaildirection', `%${inputSearch.current.value}%`);
+                .eq('passwordvisibility', true)
+                .ilike('passwordtitle', `%${searchValue}%`);
             if (error) {
                 console.error('Error fetching data:', error);
             } else {
-                setMessages(data); // Actualiza el estado con los datos recuperados
+                setPasswords(data); // Actualiza el estado con los datos recuperados
             }
         } catch (error) {
             console.error('Error:', error);
@@ -30,14 +29,17 @@ function PasswordManager(){
     async function deleteDataItem(identifier) {
         try {
             const { data, error } = await supabase
-                .from('contactmessages')
+                .from('passwordmanager')
                 .update({
-                    visibility: false
+                    passwordvisibility: false
                 })
                 .eq('id', identifier);
+            if(error) {
+                throw error;
+            }
             fetchData();
         } catch (err) {
-            alert(err)
+            console.log(err)
         }
     }
     
@@ -53,25 +55,25 @@ function PasswordManager(){
     }
 
     return(
-        <div>
-            <div className="">
+        <div className="dash__passwordManager">
+            <div className="dash__passwordManager--header">
                 <input ref={inputSearch} type="text" placeholder="Search..." onKeyDown={handleSearch}/>
             </div>
-            <div>
+            <div className="dash__passwordManager--body">
                 {console.log('Componente renderizandose')}
                 <h2>Password Manager</h2>
-                {messages.length > 0 ? (
+                {passwords.length > 0 ? (
                     <ul className='dash__data'>
-                        {messages.map((message) => (
-                            <li className='dash__data--item' key={message.id}>
+                        {passwords.map((password) => (
+                            <li className='dash__data--item' key={password.id}>
                                 <div>
-                                    <p>{message.fullname}</p>
-                                    <p>{message.emaildirection}</p>
+                                    <p>{password.passwordtitle}</p>
+                                    <p>{password.passwordvalue}</p>
                                 </div>
                                 <div>
-                                    <p>{message.emailsubject}</p>
+                                    <p>{password.passwordemail}</p>
                                 </div>
-                                <button onClick={() => { deleteDataItem(message.id) }}>Delete</button>
+                                <button onClick={() => { deleteDataItem(password.id) }}>Delete</button>
                             </li>
                         ))}
                     </ul>

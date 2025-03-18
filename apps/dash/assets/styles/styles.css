@@ -5,6 +5,9 @@
     --grey-100: #9E9E9E;
 }
 
+
+
+
 /* Dash LogIn Page */
 .dash__login {
   font-family: "Poppins", sans-serif;
@@ -35,7 +38,6 @@
   font-size: 1.4rem;
   margin-bottom: 4rem;
 }
-
 .dash__loginForm {
   display: block;
   align-items: start;
@@ -67,18 +69,57 @@
 
 
 
-
-
-
-
-
-
+/* Dash App */
 .dash{
   display: flex;
   min-height: 100vh;
 }
+.dash__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+}
+.dash__content--header {
+  height: 7rem;
+  background-color: #2C2C2C;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0 1rem;
+}
+.dash__content--headerButton {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: 3rem;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+  background-color: #636364;
+}
+.dash__content--headerButton img {
+  width: 30px;
+  background-color: #636364;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 1rem;
+}
+.dash__content--headerButton p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 14rem;
+}
 
 
+
+
+/* Dash SideBar */
 .dash__sidebar{
   background-color: red;
   border-radius: 1rem;
@@ -92,14 +133,12 @@
   justify-content: space-between;
   padding: 3rem 2rem;
 }
-
 .dash__data {
   padding: 2rem 0;
 }
 .dash__data--item {
   display: flex;
 }
-
 .dash__sidebar--userLogOut {
   display: flex;
   align-items: center;
@@ -119,10 +158,21 @@
   margin-right: 1.4rem;
 }
 
-.dash__content {
-  background-color: white;
-  width: 100%;
-  margin: 1rem;
+
+
+
+/* Dash PasswordManager */
+.dash__passwordManager {
+  padding: 2rem 1rem;
   border-radius: 1rem;
-  background-color: #9E9E9E;
+  height: 100%;
+  background-color: #2C2C2C;
+}
+.dash__passwordManager--header input {
+  width: 40rem;
+  border: 1px solid #636364;
+  margin-left: 4rem;
+}
+.dash__passwordManager--body {
+  height: 1rem;
 }
