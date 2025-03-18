@@ -7,11 +7,7 @@ import MailIcon from '@assets/images/mail.svg';
 import '../../components/components.css'
 import { createClient } from '@supabase/supabase-js';
 import { v4 as uuidv4 } from 'uuid';
-
-const supabaseURL = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-const supabase = createClient(supabaseURL, supabaseKEY);
+import { supabase } from '../../App';
 
 import { useEffect, useRef, useState } from 'react';
 

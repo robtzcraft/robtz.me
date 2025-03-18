@@ -1,14 +1,96 @@
 
 :root{
     --grey-400: #2C2C2C;
+    --grey-300: #333333;
+    --grey-100: #9E9E9E;
 }
 
-body {
-    background-color: var(--grey-400);
+/* Dash LogIn Page */
+.dash__login {
+  font-family: "Poppins", sans-serif;
+  background-color: #f2f4f7;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.dash__loginCard {
+  background-color: white;
+  filter: drop-shadow(10px 10px 10px #c9c9c9);
+  border: 1px solid #C4C4C4;
+  width: 54rem;
+  height: 65rem;
+  border-radius: 1rem;
+  padding: 12rem 10rem;
+}
+.dash__loginCardTitle {
+  font-weight: 500;
+  font-size: 3.2rem;
+  margin-bottom: 1.2rem;
+}
+.dash__loginCardText {
+  color: #636364;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-bottom: 4rem;
 }
 
-h2 {
-    color: blue;
+.dash__loginForm {
+  display: block;
+  align-items: start;
+}
+.dash__loginFormItem {
+  margin-bottom: 1rem;
+}
+.dash__loginFormItem input {
+  margin-top: 0.4rem;
+  height: 4.4rem;
+  border: 1px solid #C4C4C4;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.dash__loginFormSubmit {
+  width: 100%;
+  height: 4.2rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: #EA454C;
+  cursor: pointer;
+}
+.dash__loginFormSubmit:hover{
+  background-color: #e76269;
+}
+
+
+
+
+
+
+
+
+
+
+.dash{
+  display: flex;
+  min-height: 100vh;
+}
+
+
+.dash__sidebar{
+  background-color: red;
+  border-radius: 1rem;
+  margin: 1rem;
+
+  min-width: 31rem;
+  background-color: #2C2C2C;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 2rem;
 }
 
 .dash__data {
@@ -16,4 +98,31 @@ h2 {
 }
 .dash__data--item {
   display: flex;
+}
+
+.dash__sidebar--userLogOut {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 0 2rem;
+  border: 0px;
+  font-size: 14px;
+  color: var(--grey-100);
+  font-weight: 600;
+  background-color: var(--grey-300);
+  margin-top: 1rem;
+}
+.dash__sidebar--userLogOut img {
+  margin-right: 1.4rem;
+}
+
+.dash__content {
+  background-color: white;
+  width: 100%;
+  margin: 1rem;
+  border-radius: 1rem;
+  background-color: #9E9E9E;
 }

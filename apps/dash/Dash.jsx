@@ -1,99 +1,44 @@
-
-// import 'reset-css';
-import './assets/styles/styles.css'
-import { createClient } from '@supabase/supabase-js';
-import { useState, useEffect, useRef } from 'react';
+import './assets/styles/styles.css';
+import Sidebar from './layouts/Sidebar';
+import PasswordManager from './layouts/PasswordManager';
+import { supabase } from '../../src/App';
 import { useNavigate } from 'react-router-dom';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { useEffect } from 'react';
 
 function Dash() {
-
     const navigate = useNavigate();
 
     useEffect(() => {
-        const checkSession = async() => {
+        const checkSession = async () => {
             const { data } = await supabase.auth.getSession();
-            if(data.session == null) {
-                navigate('/authentication')
+            if (!data?.session) { // Verifica si data y session existen y si session es null o undefined
+                navigate('/authentication');
             }
-        }
+        };
+
         checkSession();
-    }, [])
 
-    const [messages, setMessages] = useState([]); // Crea un estado para almacenar los mensajes
-
-    async function fetchData() {
-        try {
-            const { data, error } = await supabase
-                .from('contactmessages')
-                .select('')
-                .eq('visibility', true)
-            if (error) {
-                console.error('Error fetching data:', error);
-            } else {
-                setMessages(data); // Actualiza el estado con los datos recuperados
+        // Configura un listener para los cambios de sesión de Supabase.
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            if (!session) {
+                navigate('/authentication');
             }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
+        });
 
-    async function deleteDataItem(identifier) {
-        try {
-            const { data, error } = await supabase
-                .from('contactmessages')
-                .update({
-                    visibility: false
-                })
-                .eq('id', identifier)
-        } catch (err) {
-            alert(err)
-        }
-    }
+        // Limpia el listener cuando el componente se desmonta.
+        return () => subscription.unsubscribe();
 
-    const signOutSession = async(e) => {
-        e.preventDefault();
-        try {
-            const { error } = await supabase.auth.signOut()
-            navigate('/authentication')
-        } catch(err) {
-            console.log(err)
-        }
-    }
-
-    fetchData();
-
-    useEffect(() => {
-        fetchData(); // Llama a fetchData al montar el componente
-    }, []); // El array vacío asegura que se ejecute solo una vez al montar
+    }, [navigate]); // Agrega navigate como dependencia.
 
     return (
-        <div>
-            <h2>Hola Dash</h2>
-            {messages.length > 0 ? (
-                <ul className='dash__data'>
-                    {messages.map((message) => (
-                        <li className='dash__data--item' key={message.id}>
-                            <div>
-                                <p>{message.fullname}</p>
-                                <p>{message.emaildirection}</p>
-                            </div>
-                            <div>
-                                <p>{message.emailsubject}</p>
-                            </div>
-                            <button onClick={() => { deleteDataItem(message.id) }}>Delete</button>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No hay mensajes.</p>
-            )}
-            <button onClick={signOutSession}>Log Out</button>
+        <div className='dash'>
+            {console.log('Renderizando')}
+            <Sidebar />
+            <div className='dash__content'>
+                <PasswordManager />
+            </div>
         </div>
     );
 }
 
-export default Dash
+export default Dash;

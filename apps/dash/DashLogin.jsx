@@ -1,11 +1,8 @@
 
-import { createClient } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from "../../src/App";
+import './assets/styles/styles.css';
 
 function DashLogin(){
 
@@ -16,8 +13,8 @@ function DashLogin(){
     useEffect(() => {
         const checkSession = async() => {
             const { data } = await supabase.auth.getSession();
-            if(data.session == null) {
-                navigate('/authentication')
+            if(data.session) {
+                navigate('/dash')
             }
         }
         checkSession();
@@ -39,13 +36,22 @@ function DashLogin(){
     }
 
     return(
-        <div>
-            <h2>Test</h2>
-            <form onSubmit={authenticationFunction}>
-                <input ref={emailInput} type="email" placeholder="Email" required />
-                <input ref={passwordInput} type="password" placeholder="Password" required />
-                <input type="submit" placeholder="Submit" />
-            </form>
+        <div className="dash__login">
+            <div className="dash__loginCard">
+                <p className="dash__loginCardTitle">WELCOME ROBTZ</p>
+                <p className="dash__loginCardText">Welcome back! Please enter your details.</p>
+                <form className="dash__loginForm" onSubmit={authenticationFunction}>
+                    <div className="dash__loginFormItem">
+                        <p className="dash__loginFormItem--label">Email</p>
+                        <input className="dash__loginFormItem--input" ref={emailInput} type="email" placeholder="Enter your email" required />
+                    </div>
+                    <div className="dash__loginFormItem">
+                        <p className="dash__loginFormItem--label">Password</p>
+                        <input className="dash__loginFormItem--input" ref={passwordInput} type="password" placeholder="Enter your password" required />
+                    </div>
+                    <input className="dash__loginFormSubmit" type="submit" value={'Sign in'}/>
+                </form>
+            </div>
         </div>
     )
 }
