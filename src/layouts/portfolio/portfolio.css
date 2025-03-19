@@ -1,0 +1,17 @@
+
+.portfolio__url{
+    margin-top: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #3c3c3c;
+    display: flex;
+    align-items: center;
+    height: 7rem;
+    padding: 0;
+}
+.portfolio__url:hover{
+    background-color: #4c4c43;
+}
+.portfolio__url--image {
+    width: 7rem;
+    margin-right: 2rem;
+}

@@ -7,17 +7,17 @@
 */
 
 import ReactDOM from 'react-dom/client';
-import "@assets/styles/styles.css";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { createClient } from '@supabase/supabase-js';
 import DashLogin from '../apps/dash/DashLogin';
 import Dash from '../apps/dash/Dash';
 import Error404 from './layouts/error/Error404';
 import Home from './layouts/Home';
-import { createClient } from '@supabase/supabase-js';
+import "@assets/styles/styles.css";
 
+// Supabase client object (global)
 const supabaseURL = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
 export const supabase = createClient(supabaseURL, supabaseKEY);
 
 function App(){

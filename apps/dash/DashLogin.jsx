@@ -26,12 +26,21 @@ function DashLogin(){
             const { data, error } = await supabase.auth.signInWithPassword({
                 email: emailInput.current.value,
                 password: passwordInput.current.value
-            })
+            });
+            if(error){
+                if(error.code == 'invalid_credentials'){
+                    emailInput.current.value = ''
+                    passwordInput.current.value = '';
+                    alert('Invalid user')
+                    return;
+                }
+            }
             if (data) {
                 navigate('/dash')
             }
         } catch(err) {
-            console.log('Constraseña incorrecta');
+            // console.log(err)
+            alert('An error has been occured');
         }
     }
 

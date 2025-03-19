@@ -1,11 +1,9 @@
 import './header.css';
 import Button from '../../components/Button';
-import CurriculumVitae from '../../documents/CurriculumVitae_AzuaraJorge.pdf';
 import GithubIcon from '@assets/images/brand-github.svg';
 import LinkedInIcon from '@assets/images/brand-linkedin.svg';
 import MailIcon from '@assets/images/mail.svg';
 import '../../components/components.css'
-import { createClient } from '@supabase/supabase-js';
 import { v4 as uuidv4 } from 'uuid';
 import { supabase } from '../../App';
 
@@ -130,11 +128,11 @@ function Header() {
             <img src={MailIcon} alt="mail" />
           </a>
           <Button 
-            href={CurriculumVitae}
+            href={'https://mrzhlbvbuwadffyfzosj.supabase.co/storage/v1/object/public/curriculumvitae.azuarajorge//CurriculumnVitae_JorgeAzuara.pdf'}
             children={'Download CV'}
             download={true}
           />
-
+          
           { /* Dialog para */ }
           <dialog ref={dialogRef} className='dialogPopUp'>
             <div className='dialogPopUp__header'>

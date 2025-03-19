@@ -4,8 +4,14 @@ import Experience from './experience';
 import ProfilePhoto from '/profile.jpg';
 import Skills from './skills';
 import Portfolio from './portfolio';
+import { useEffect } from 'react';
 
 function Home() {
+
+  useEffect(() => {
+    document.title = 'robtz.me'
+  }, []);
+
 	return (
     <div className='App'>
       <Header />
