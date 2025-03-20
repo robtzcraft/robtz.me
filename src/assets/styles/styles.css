@@ -2,11 +2,11 @@
 :root {
 	/* Colors */
 	--background-black-soft: #1D1E22;
-  --white: rgba(255, 255, 255, 0.89);
-	--black-30: rgba(255,255,255,0.3);
   --black-45: rgba(45, 45, 45, 1);
   --gray-soft: #525252;
+	--black-30: rgba(255,255,255,0.3);
   --black-soft: #A0AEC0;
+  --white: rgba(255, 255, 255, 0.89);
   --orange: #FF8F06;
 
   /* Dark scheme */
@@ -72,10 +72,6 @@ p {
   font-size: 1.6rem;
   text-align: justify;
 }
-
-
-/* Generals */
-
 body {
   color: var(--robtz__white);
 }
@@ -87,9 +83,6 @@ body {
   width: 50.4rem;
   margin: 0 auto;
 }
-
-
-
 .app__profilePhoto {
   display: flex;
   justify-content: center;
@@ -104,12 +97,183 @@ body {
 
 
 
-
-
+/* App */
 .App {
   min-height: 100vh;
 	background-color: var(--robtz__black);
 }
+
+
+
+/* Header */
+.__header {
+  backdrop-filter: blur(10px);
+  filter: drop-shadow(0px 2px 6px #1d1e22);
+  background-color: rgba(29,30,34,0.67);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 5.6em;
+  border-bottom: 0.5px solid gray;
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+}
+.__header > .__container {
+  display: flex;
+  justify-content: space-between;
+}
+.__header__logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+}
+.__header__logo p {
+  font-size: 26px;
+}
+.__display__logo__img {
+  width: 35px;
+  margin-right: 8px;
+}
+.__header__navbar {
+  display: flex;
+  color: white;
+  font-weight: 500;
+  align-items: center;
+}
+.__header__navbar a {
+  margin-left: 13px;
+}
+.dialogPopUp{
+  position: fixed;
+  margin: auto;
+  padding: 1rem;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  background-color: var(--robtz__blackSoft);
+  border: 0px;
+  overflow-y: auto;
+  z-index: 1000;
+  color: white;
+  width: 40rem;
+  border-radius: 1rem;
+}
+.dialogPopUp::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body:has(dialog[open]){
+  overflow: hidden;
+}
+.dialogPopUp__header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  width: calc(90%);
+}
+.dialogPopUp__header p:first-child{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  margin-bottom: 1.2rem;
+}
+input, textarea {
+  height: 3.4rem;
+  border-radius: 1rem;
+  width: calc(90%);
+  padding: 0 1.2rem;
+  border: 0px;
+}
+textarea[name="userMessage"] {
+  height: 10rem;
+  vertical-align: top;
+  padding: 0.5rem 1.2rem;
+  resize: none;
+  font-family: var(--open-sans);
+  font-size: 1.35rem;
+  margin-bottom: 2rem;
+}
+.dialogPopup__form form button{
+  width: calc(80%);
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+
+
+/* Experience */
+.app__body--experienceItem {
+  margin: 1.6rem 0;
+}
+.app__body--experienceItemTitle {
+  font-weight: 700;
+}
+.app__body--experienceItemTitle::before {
+  content: ' ';
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  display: inline-block;
+  background-color: white;
+  margin-right: 10px;
+  top: -1.5px;
+  z-index: 1;
+}
+
+.app__body--experienceItemCompany, .app__body--experienceItemDate {
+  margin-left: 2rem;
+  margin-top: 0.2rem;
+}
+
+
+
+/* Skills */
+.__skills__recordItem {
+  font-family: var(--jetbrainsmono-font);
+  font-weight: 500;
+  background-color: var(--robtz__blackSoft);
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.8rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+.__skills__recordItem img {
+  width: 3rem;
+  margin-right: 2rem;
+}
+.__skills__recordItemPercentage {
+  margin-left: auto;
+}
+
+
+
+/* Portfolio */
+.portfolio__url{
+  margin-top: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #3c3c3c;
+  display: flex;
+  align-items: center;
+  height: 7rem;
+  padding: 0;
+}
+.portfolio__url:hover{
+  background-color: #4c4c43;
+}
+.portfolio__url--image {
+  width: 7rem;
+  margin-right: 2rem;
+}
+
 
 
 /* Last Message */
@@ -134,9 +298,20 @@ body {
   font-size: 1.4rem;
   line-height: 1.6;
 }
+.__footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  justify-content: center;
+  padding: 3.2rem 0;
+}
+.__footer__text {
+  font-weight: 400;
+  color: rgba(255,255,255,0.34);
+}
 
 
-
+/* 404 ErrorPage */
 .errorPage {
   display: flex;
   justify-content: center;

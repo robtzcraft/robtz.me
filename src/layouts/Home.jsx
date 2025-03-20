@@ -1,15 +1,15 @@
-import Header from './header';
-import Footer from './footer';
-import Experience from './experience';
+import Header from './Header';
+import Footer from './Footer';
+import Experience from './Experience';
 import ProfilePhoto from '/profile.jpg';
-import Skills from './skills';
-import Portfolio from './portfolio';
+import Skills from './Skills';
+import Portfolio from './Portfolio';
 import { useEffect } from 'react';
 
 function Home() {
 
   useEffect(() => {
-    document.title = 'robtz.me'
+    document.title = 'robtz.me - Homepage'
   }, []);
 
 	return (

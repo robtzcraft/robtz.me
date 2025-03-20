@@ -1,11 +1,10 @@
-import './header.css';
-import Button from '../../components/Button';
+import Button from '../components/Button';
 import GithubIcon from '@assets/images/brand-github.svg';
 import LinkedInIcon from '@assets/images/brand-linkedin.svg';
 import MailIcon from '@assets/images/mail.svg';
-import '../../components/components.css'
+import '../components/components.css'
 import { v4 as uuidv4 } from 'uuid';
-import { supabase } from '../../App';
+import { supabase } from '../App';
 
 import { useEffect, useRef, useState } from 'react';
 

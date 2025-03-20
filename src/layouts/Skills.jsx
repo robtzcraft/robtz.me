@@ -1,5 +1,4 @@
 
-import '@layouts/skills/skills.css';
 import ReactJS from '@assets/images/reactjs.png';
 import PostgreSQL from '@assets/images/postgresql.png';
 import SpringBoot from '@assets/images/springboot.png';
@@ -11,7 +10,7 @@ function SkillsCard({logo, text, porcentage}){
   return(
     <>
       <div className='__skills__recordItem'>
-        <img src={logo} />
+        <img src={logo} title='recordItemTitle' alt='recordItemImage'/>
         <p>{text}</p>
         <p className='__skills__recordItemPercentage'>{porcentage}</p>
       </div>

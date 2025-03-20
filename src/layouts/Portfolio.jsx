@@ -1,5 +1,3 @@
-import "./portfolio.css";
-
 function Portfolio(){
   return(
     <>
@@ -11,7 +9,7 @@ function Portfolio(){
           profile... or my <span><a href="https://github.com/robtzcraft" target="_blank">GitHub</a></span> for all my public projects.
         </p>
         <a className="portfolio__url" href="https://github.com/robtzcraft/robtz.me/tree/dev" target="_blank">
-          <img className="portfolio__url--image" src="robtzcraft.svg" />
+          <img className="portfolio__url--image" src="robtzcraft.svg" alt="icon_image" />
           <div className="portfolio__url--content">
             <p className="portfolio__url--contentTitle">Robtz's portfolio repo</p>
             <p className="portfolio__url--contentDescription">Here you can see my progress...</p>

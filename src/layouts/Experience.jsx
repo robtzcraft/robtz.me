@@ -1,5 +1,3 @@
-import '@layouts/experience/experience.css';
-
 function Experience(){
   return(
     <>
