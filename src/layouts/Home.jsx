@@ -20,7 +20,9 @@ function Home() {
       </div>
       <main className='__container__body app__body'>
         <div className='app__body--prebody'>
-          ✋  Hi!, I'm 'robtz' a junior software developer <br /> based in México!
+          <h1>
+            ✋  Hi!, I'm 'robtz' a junior software developer <br /> based in México!
+          </h1>
         </div>
         <h2>About</h2>
         <p>
