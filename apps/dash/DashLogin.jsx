@@ -33,6 +33,8 @@ function DashLogin(){
                     passwordInput.current.value = '';
                     alert('Invalid user')
                     return;
+                } else {
+                    alert(error.message);
                 }
             }
             if (data) {
